@@ -1,32 +1,19 @@
 const express = require("express");
 const app = express();
+const userRouter = require("./routes/userRouter.js");
+const tourRouter = require("./routes/tourRouter.js");
 
-const {
-  getAllTours,
-  getTourById,
-  createTour,
-  updateTour,
-  deleteTour,
-} = require("./controllers/tourControllers.js");
 
 // Middleware to parse JSON
 app.use(express.json());
 
 // ROUTES
 // GET /tours
-app.get("/tours", getAllTours);
 
+app.use("/user", userRouter);
+app.use("/tour", tourRouter);
 // POST /tours
-app.post("/tours", createTour);
 
-// GET /tours/:tourId
-app.get("/tours/:tourId", getTourById);
-
-// PUT /tours/:tourId
-app.put("/tours/:tourId", updateTour);
-
-// DELETE /tours/:tourId
-app.delete("/tours/:tourId", deleteTour);
 
 const port = 4000;
 // Start the server
