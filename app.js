@@ -4,6 +4,7 @@ const userRouter = require("./routes/userRouter.js");
 const tourRouter = require("./routes/tourRouter.js");
 
 const morgan = require('morgan');
+
 app.use(morgan('tiny'));
 
 

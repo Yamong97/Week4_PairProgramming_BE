@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const auth = require("../middleware/auth.js");
 
 const {
   getAllTours,
@@ -10,6 +11,7 @@ const {
 } = require("../controllers/tourControllers.js");
 
 router.get("/", getAllTours);
+router.use(auth); // Apply the auth middleware to all routes below
 router.post("/", createTour);
 
 // GET /tours/:tourId
